@@ -183,6 +183,7 @@ figure.effect-julia:hover p {
 <br><br><br><br>
 Welcome, {{user.first_name}}!
 <div class="row">
+    <script>arr = new Array()</script>
 {% for song in songs %}
 <div class="col-md-3">
 
@@ -195,7 +196,13 @@ Welcome, {{user.first_name}}!
               <h2><span>{{song.name_of_song}}</span></h2>
               <div>
                 <br><br>
-                <p>Download</p><br>
+                  <script>
+                     arr["{{forloop.counter}}"] = "/media/karaoke/" +"{{song.full_name}}";
+                  </script>
+                  <p><a href="" id="{{song.full_name}}" download>Download Karaoke </a></p><br>
+                  <script>
+                    document.getElementById("{{song.full_name}}").href = arr["{{forloop.counter}}"];
+                  </script>
                 <p data-toggle="modal" data-target="#exampleModalHistory">Score History</p><br>
                 <p>Start Singing</p><br>
                 <p>Leaderboardd</p><br>

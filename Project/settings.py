@@ -138,6 +138,9 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 #redirect url on login success
 LOGIN_REDIRECT_URL = 'profile'
 
+#user not logged in trying to open profile gets redirected to home
+LOGIN_URL = 'home'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

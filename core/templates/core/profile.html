@@ -227,7 +227,7 @@ Welcome, {{user.first_name}}!
         var song_name = this.id;
          var data = {'song_name': song_name};
     $.post(url, data, function(response){
-        if ( response === 'success'){console.log("hurray");}
+        if ( response === 'success'){window.location = url}
     });
 })
 

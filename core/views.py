@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect, render_to_response
+from django.shortcuts import render,redirect, render_to_response, reverse
 from django.core.files.storage import FileSystemStorage
 from core.models import songDB
 from mp3towav import converter
@@ -276,9 +276,8 @@ def record(request):
         vocals_url = request.user.username + request.POST['song_name']
         request.session['vocals_url'] = vocals_url
         request.session['song_name'] = request.POST['song_name']
-
+        return HttpResponse('success')
     song_name = request.session['song_name']
-    print song_name
     vocals_url = request.session['vocals_url']
     if request.POST.get('rmsValue',''):
         rmsValue = request.POST.get('rmsValue','')
@@ -295,15 +294,14 @@ def record(request):
 
 def leaderboard(request):
     if (request.session):
-        song_name = request.session['song']
-        to_email_id = request.session['email']
-        hash_filter = songDB.objects.filter(full_name=to_email_id + song_name)
+        song_name = request.session['song_name']
+        hash_filter = songDB.objects.filter(full_name=request.user.username + song_name)
         song_filter = songDB.objects.filter(hash_code=hash_filter[0].hash_code)
-        email_score = {}
+        username_score = {}
         for items in song_filter:
-            email_score[items.email_id] = max([float(i) for i in items.score.split()])
+            username_score[items.user_name] = max([float(i) for i in items.score.split()])
         # count_array  = [ i for i in range(1,len(email_score)+1)]
         import operator
-        sorted_x = sorted(email_score.items(), key=operator.itemgetter(1),reverse=True)
+        sorted_x = sorted(username_score.items(), key=operator.itemgetter(1),reverse=True)
         return render(request, 'core/leaderboard.html',
                       {'email_score': sorted_x, 'song_name': song_name})

@@ -183,7 +183,9 @@ figure.effect-julia:hover p {
 <br><br><br><br>
 Welcome, {{user.first_name}}!
 <div class="row">
-    <script>arr = new Array()</script>
+    <script>
+        arr = new Array();
+    </script>
 {% for song in songs %}
 <div class="col-md-3">
 
@@ -198,14 +200,15 @@ Welcome, {{user.first_name}}!
                 <br><br>
                   <script>
                      arr["{{forloop.counter}}"] = "/media/karaoke/" +"{{song.full_name}}";
+
                   </script>
                   <p><a href="" id="{{song.full_name}}" download>Download Karaoke </a></p><br>
                   <script>
                     document.getElementById("{{song.full_name}}").href = arr["{{forloop.counter}}"];
                   </script>
-                <p data-toggle="modal" data-target="#exampleModalHistory">Score History</p><br>
-                <p>Start Singing</p><br>
-                <p>Leaderboard</p><br>
+                <p class="scores" id="{{song.score}}" data-toggle="modal" data-target="#exampleModalHistory" data-backdrop="static" data-keyboard="false">Score History</p><br>
+                <p id="{{song.name_of_song}}" onclick="">Start Singing</p><br>
+                <p  data-toggle="modal" data-target="#exampleModalLeaderboard">Leaderboard</p><br>
               </div>
               
             </figcaption>     
@@ -217,23 +220,105 @@ Welcome, {{user.first_name}}!
 </div>
 {% endfor %}
 </div>
-<div class="modal fade" id="exampleModalHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalHistoryLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">SCORE HISTORY<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title" id="exampleModalHistoryLabel">SCORE HISTORY<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" onclick="clearGraph()">&times;</span>
+        </button></h4>
+
+      </div>
+      <div class="modal-body">
+          <div id="chart"></div>
+<div id="Legend"></div>
+         <script>
+         var scores_array;
+         var id;
+data = [];
+$('.scores').click(function() {
+            id = this.id;
+            var scores_array = id.split(" ");
+          for(var i=0; i<scores_array.length; i++) { scores_array[i] = +scores_array[i]};
+
+          for (var i = 0; i < scores_array.length; i++)
+{
+    data.push({x: i, y: scores_array[i]});
+
+}
+var graph = new Rickshaw.Graph({
+        element: document.querySelector("#chart"),
+        renderer: 'line',
+        series: [{
+                data: data,
+                color: 'steelblue',
+		name: "Your Score"
+        },]
+});
+
+graph.render();
+var xAxis = new Rickshaw.Graph.Axis.X({
+  graph: graph,
+  }) ;
+  var yAxis = new Rickshaw.Graph.Axis.Y({
+  graph: graph,
+  }) ;
+  xAxis.render(); yAxis.render();
+
+  var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+	graph: graph,
+	yFormatter: function(y) {return y}
+
+
+} );
+
+  var legend= new Rickshaw.Graph.Legend({
+    graph: graph,
+    element: document.getElementById('Legend')
+}
+)
+
+          })
+
+function clearGraph() {
+    $('#Legend').empty();
+    $('#chart').html(
+    '<div id="chart"></div>'
+
+  );
+  data=[];}
+
+
+
+
+
+
+</script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="clearGraph()" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalLeaderboard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLeaderboardLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLeaderboardLabel">LEADERBOARD<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button></h4>
 
       </div>
       <div class="modal-body">
-         
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Sign Up</button>
       </div>
-      
+
     </div>
   </div>
 </div>

@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+<style>
+    .jumbotron {
+        /*background: 
+            url('/static/core/images/cropped-concert-audience.jpg')
+            center;
+*/
+        padding-top: 8%;
+        padding-bottom: 23%;
+        background-image:url('/static/core/images/pexels-photo-61383.jpg');
+        background-repeat: repeat-x;
+        /*background-width: 100%;*/
+        background-size: cover;
+    }
+
+    .row {
+        padding-bottom: 10%;
+    }
+
+    .btn-success {
+        margin-left: 19%;
+        margin-right: 50%;
+        padding: 1.5% 2% 1.5% 2%;
+        font-size: 125%;
+        margin-top: -5%;
+    }
+
+    .btn-primary:hover {
+        background-color: #2a364c ;
+    }
+
+    section h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font : normal 300 64px/1 'Josefin Sans', sans-serif;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    #explanation {
+        font-size: 130% ;
+        text-align: center;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 5%;
+    }
+
+    #icons {
+        /*font-family: heading1;*/
+        font-size: 200%;
+        padding-bottom: 3%;
+    }
+
+    .SITEMAP {
+        margin-top: -8%;
+        <!--margin-bottom: -15%;-->
+    }
+
+</style>
+
+<script>
+    $(function() {
+    $('a[href*=#]').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+    });
+});
+
+</script>
+
+{% endblock %}
+
+{% block content2 %}
+      
+<div class="jumbotron">
+    <!-- <div class="container"> -->
+        <div class="heading1"><font color="white">SONGTRAIN</font></div>
+        <div class="heading2"><font color="white">MATHEMATIZING MUSIC</font></div>
+        <!-- <a href="{% url 'simple_upload' %}">
+        <button type="button" class="btn btn-success pull-right">GET STARTED</button>
+        </a> -->
+        <section id="section04" class="demo">
+    <a href="#section05"><span></span>GET STARTED</a>
+</section>
+
+    <!-- </div> -->
+</div>
+
+<section id="section05">
+<div class="container screen2">
+    <div class="row">  
+        <div class="col-md-4" id="upload_icon">
+            <img src='/static/core/images/upload.png' class="img-rounded  img-responsive center-block" height="120" width="120"><br>
+            <div id="explanation">
+                <div id="icons">
+                    UPLOAD
+                </div>
+                Upload a song you want to master and we will send you its karaoke link via email.
+            </div>
+        </div>
+
+        <div class="col-md-4" id="song_icon">
+            <img src='/static/core/images/sing.png' class="img-rounded img-responsive center-block" height="120" width="120"><br>
+            <div id="explanation">
+
+                <div id="icons">
+                    SING
+                </div>
+                Sing while the karaoke plays in the background and we will record your singing for evaluation.
+            </div>
+        </div>
+
+        <div class="col-md-4" id="graph_icon">
+            <img src='/static/core/images/graphicon.png' class="img-rounded  img-responsive center-block" height="120" width="120"><br>
+            <div id="explanation">
+
+                <div id="icons">
+                    EVALUATE
+                </div>
+                We analyze your recording and plot it against the original track, and generate a score. <!-- Compare your singing with others using our global leaderboard! -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="{% url 'simple_upload' %}">
+    <div class="tryforfree">
+        <button type="button" class="btn btn-success">TRY FOR FREE!</button>
+        </a>
+
+</section>
+
+
+      <!-- <div style="position: relative;">
+        <div id="upload_icon" style="width: 20%;
+	height: 300px; position:absolute; left:5%;"><img src='/static/core/images/upload.png' height="150" width="195">
+        <br><div style="margin-left: 30%;"><div style="font-size: 20px; font-weight:bold">UPLOAD</div><br>
+        Upload a song you want to master and we will send you its karaoke link via email.  </div>
+        </div>
+        <div id="song_icon" style="width: 20%;
+	height: 300px; position:absolute; left:25%"><img src='/static/core/images/sing.png' height="150" width="195">
+        <br><div style="margin-left: 30%"><div style="font-size: 20px; font-weight:bold;">SING</div><br>
+        Sing while the karaoke plays in the background and we will record your singing for evaluation.</div>
+        </div>
+        <div id="graph_icon" style="width: 20%;
+	height: 300px; position:absolute; left:45%"><img src='/static/core/images/graphicon.png' height="150" width="195">
+        <br><div style="margin-left: 30%"><div style="font-size: 20px; font-weight:bold;">EVALUATE</div><br>We analyze your recording and plot it against the original track, and generate a score. Compare your singing with others using our global leaderboard!
+        </div>
+        </div>
+        </div> -->
+      <!-- <div style="margin-top: 27%; margin-left: 28%" class = "btn btn-primary" onclick = "window.location.href = '{% url 'simple_upload' %}';" id = "start">
+        Get Started!
+      </div> -->
+
+{% endblock %} 

@@ -1,0 +1,238 @@
+  {% extends 'base.html' %}
+
+{% block content1  %}
+<style>
+    /*
+ * Housekeeping
+ */
+
+
+
+h1, p {
+    margin: 0;
+    padding: 0 0 .5em;
+}
+
+.container1 {
+    margin: 0 auto;
+    max-width: 330px;
+}
+
+/*
+ * Caption component
+ */
+.caption1 {
+    position: relative;
+    overflow: hidden;
+
+    /* Only the -webkit- prefix is required these days */
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+}
+
+.caption1::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    transition: background .15s ease-out;
+}
+
+.caption1:hover::before {
+    background: rgba(0, 0, 0, .5);
+}
+
+.caption__media {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.caption__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    color: white;
+
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+
+    transition: -webkit-transform .15s ease-out;
+    transition:         transform .15s ease-out;
+}
+
+.caption1:hover .caption__overlay {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+
+.caption__overlay__title {
+    -webkit-transform: translateY( -webkit-calc(-100% - 10px) );
+            transform: translateY( calc(-100% - 10px) );
+
+    transition: -webkit-transform .15s ease-out;
+    transition:         transform .15s ease-out;
+}
+
+.caption1:hover .caption__overlay__title {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+
+</style>
+
+
+{% endblock %}
+{% block content2 %}
+<section>
+<br><br><br><br>
+Welcome, {{user.first_name}}!
+<div class="row">
+{% for song in songs %}
+<div class="col-md-3">
+
+    <article class="caption1">
+        <img class="caption__media" src="http://farm7.staticflickr.com/6088/6128773012_bd09c0bb4e_z_d.jpg" />
+        <div class="caption__overlay">
+            <h1 class="caption__overlay__title">{{song.name_of_song}}</h1>
+            <p class="caption__overlay__content">
+                <button class="btn btn-primary">
+                  SING
+                </button>
+                <button class="btn btn-primary">
+                  LEADERBOARD
+                </button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalHistory">
+                  SCORE HISTORY
+                </button>
+                <button class="btn btn-primary">
+                  DOWNLOAD
+                </button>                
+            </p>
+        </div>
+    </article>
+
+</div>
+{% endfor %}
+
+<div class="modal fade" id="exampleModalHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">SCORE HISTORY<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h4>
+
+      </div>
+      <div class="modal-body">
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="container row1">
+  <div class="row">
+
+    <div class="col-md-7">
+    </div>
+
+    <div class="col-md-5">
+      <div id="upload_file">
+        UPLOAD A SONG
+      </div>
+
+      <div class="contents">
+        <ul>
+        <li>mp3 or wav format only.
+        <li>Stereo audio only.
+        </ul>
+
+        <div class="form-horizontal">
+          <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+          <div class="row">
+            <div class="form-group">
+                <label class="control-label col-sx-2"></label>
+                <input type="email" name="to_email" class="form-control" id="inputEmail" placeholder="Email">
+
+            </div>
+          </div>
+          <div class="row row2">
+            <div class="col-md-4">
+              <label class="fileUpload btn btn-success" id = "start1">
+                <input type="file" name="myfile" onchange="$('#upload-file-info').html(this.files[0].name);"> 
+                SELECT FILE
+              </label><span style="font-size: 60%" id="upload-file-info"></span>
+            </div>
+
+            <div class="col-md-5">
+              <button type="submit" class="fileUpload btn btn-success upload_button">UPLOAD</button>
+            </div>
+          </div>
+          </form>
+
+          <div class="row" id="upload_url">
+              {%if uploaded_file_url %}
+              
+              You have uploaded the song <B>{{filename}}</B>.<br>
+
+              We will send the karaoke to <B>{{to_email_id}}</B> after we are done processing it.<br>
+
+              <B> Upload another song!</B>
+              {% endif %}
+          
+          </div>
+
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="table1">
+      <table class="table table-striped table-responsive">
+          <thead> 
+          <tr>
+          <th>Song Name</th>
+          <th>Karaoke Created?</th>
+          <th>Your Best Score</th>
+          <th>Highest Score overall</th>
+          <th>Last Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for song in songs %}
+            <tr>
+                <td>{{song.name_of_song}}</td>
+                <td>{{song.email_sent}}</td>
+                <td>{{song.score}}</td>
+                <td>{{song.score}}</td>
+                <td>{{song.date_time}}</td>
+            </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+<a href="{% url 'logout' %}">Logout</a>
+</section>
+{% endblock %}

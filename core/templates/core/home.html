@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+<style>
+            .jumbotron {
+        /*background: 
+            url('/static/core/images/cropped-concert-audience.jpg')
+            center;
+*/
+        padding-top: 8%;
+        padding-bottom: 23%;
+        background-image:url('/static/core/images/pexels-photo-61383.jpg');
+        background-repeat: repeat-x;
+        /*background-width: 100%;*/
+        background-size: cover;
+    }
+
+    .threeicons {
+        padding-bottom: 10%;
+    }
+
+    .btn-success {
+        margin-left: 19%;
+        margin-right: 50%;
+        padding: 1.5% 2% 1.5% 2%;
+        font-size: 125%;
+        margin-top: -5%;
+    }
+
+    .btn-primary:hover {
+        background-color: #2a364c ;
+    }
+
+    section h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font : normal 300 64px/1 'Josefin Sans', sans-serif;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    #explanation {
+        font-size: 130% ;
+        text-align: center;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 5%;
+    }
+
+    #icons {
+        /*font-family: heading1;*/
+        font-size: 200%;
+        padding-bottom: 3%;
+    }
+
+    .yogu .yoku{
+        background: blue;
+        color: red;
+    }
+    
+
+</style>
+
+<script>
+    $(function() {
+    $('a[href*=#]').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+    });
+});
+
+</script>
+
+{% endblock %}
+{% block login %}
+<a href data-toggle="modal" data-target="#exampleModalLogin">LOGIN</a>
+{% endblock %}
+
+
+{% block logout %}
+<a href data-toggle="modal" data-target="#exampleModal">SIGNUP</a>
+{% endblock %}
+{% block content2 %}
+
+<div class="jumbotron">
+    <!-- <div class="container"> -->
+        <div class="heading1"><font color="white">SONGTRAIN</font></div>
+        <div class="heading2"><font color="white">MATHEMATIZING MUSIC</font></div>
+        <!-- <a href="{% url 'simple_upload' %}">
+        <button type="button" class="btn btn-success pull-right">GET STARTED</button>
+        </a> -->
+    <section id="section04" class="demo">
+            <a href="#section05"><span></span>GET STARTED</a>
+    </section>
+
+    <!-- </div> -->
+</div>
+
+<section id="section05">
+<div class="container screen2">
+    <div class="row threeicons">
+        <div class="col-md-4" id="upload_icon">
+            <img src='/static/core/images/upload.png' class="img-rounded  img-responsive center-block" height="120" width="120"><br>
+            <div id="explanation">
+                <div id="icons">
+                    UPLOAD
+                </div>
+                Upload a song you want to master and we will send you its karaoke link via email.
+            </div>
+        </div>
+
+        <div class="col-md-4" id="song_icon">
+            <img src='/static/core/images/sing.png' class="img-rounded img-responsive center-block" height="120" width="120"><br>
+            <div id="explanation">
+
+                <div id="icons">
+                    SING
+                </div>
+                Sing while the karaoke plays in the background and we will record your singing for evaluation.
+            </div>
+        </div>
+
+        <div class="col-md-4" id="graph_icon">
+            <img src='/static/core/images/graphicon.png' class="img-rounded  img-responsive center-block" height="120" width="120"><br>
+            <div id="explanation">
+
+                <div id="icons">
+                    EVALUATE
+                </div>
+                We analyze your recording and plot it against the original track, and generate a score. <!-- Compare your singing with others using our global leaderboard! -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="{% url 'simple_upload' %}">
+    <div class="tryforfree">
+        <button type="submit" class="btn btn-success">TRY FOR FREE!</button>
+        </a>
+
+</section>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">SIGN UP<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h4>
+
+      </div>
+      <div class="modal-body">
+         <form method="post" id="signup_form">
+    {% csrf_token %}
+    {% for field in form1 %}
+      <p>
+        <div class ="form-group">
+        <br>
+          {{ field }}
+
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        <script>
+            $(function() {
+            $('#exampleModal').modal({show: true});
+            });
+    </script>
+
+        {% endfor %}
+      </div>
+      </p>
+    {% endfor %}
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLoginLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLoginLabel">LOGIN<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h4>
+
+      </div>
+      <div class="modal-body">
+          {% if username != '' %}
+          <font color="red" >Username or Password is Incorrect </font>
+           <script>
+            $(function() {
+            $('#exampleModalLogin').modal({show: true});
+            });
+    </script>
+          {% endif %}
+         <form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="controls">
+            <input type="text" class="form-control" id="username"  name="username" placeholder="Username" value={{username}}>
+        </div>
+    </div>
+    <div class="control-group">
+            <div class="controls">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+
+        </div>
+    </div>
+    </form>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+$('.modal').on('show.bs.modal', function () {
+if ($(document).height() > $(window).height()) {
+  $('body').attr('style', 'margin-right:'  + 'px;');
+} else {
+  $('body').attr('style', 'margin-right:0;');
+}
+})
+$('.modal').on('hidden.bs.modal', function () {
+  $('body').attr('style', 'margin-right:0px;');
+})  </script>
+
+
+	<!-- Modal -->
+
+      <!-- <div style="position: relative;">
+        <div id="upload_icon" style="width: 20%;
+	height: 300px; position:absolute; left:5%;"><img src='/static/core/images/upload.png' height="150" width="195">
+        <br><div style="margin-left: 30%;"><div style="font-size: 20px; font-weight:bold">UPLOAD</div><br>
+        Upload a song you want to master and we will send you its karaoke link via email.  </div>
+        </div>
+        <div id="song_icon" style="width: 20%;
+	height: 300px; position:absolute; left:25%"><img src='/static/core/images/sing.png' height="150" width="195">
+        <br><div style="margin-left: 30%"><div style="font-size: 20px; font-weight:bold;">SING</div><br>
+        Sing while the karaoke plays in the background and we will record your singing for evaluation.</div>
+        </div>
+        <div id="graph_icon" style="width: 20%;
+	height: 300px; position:absolute; left:45%"><img src='/static/core/images/graphicon.png' height="150" width="195">
+        <br><div style="margin-left: 30%"><div style="font-size: 20px; font-weight:bold;">EVALUATE</div><br>We analyze your recording and plot it against the original track, and generate a score. Compare your singing with others using our global leaderboard!
+        </div>
+        </div>
+        </div> -->
+      <!-- <div style="margin-top: 27%; margin-left: 28%" class = "btn btn-primary" onclick = "window.location.href = '{% url 'simple_upload' %}';" id = "start">
+        Get Started!
+      </div> -->
+<div class="yogu">
+    <div class="yoku">
+        gopa
+    </div>
+</div>
+
+<div class="yogu">
+goma
+</div>
+
+
+
+{% endblock %} 

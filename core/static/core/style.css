@@ -1,0 +1,332 @@
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+.fileUpload .upload {
+	position: absolute;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+/*#start {
+	position: relative;
+	margin-left: 15%;
+	margin-top: 5%;
+}*/
+
+@font-face {
+	font-family: heading1;
+    src: url("fonts/Nexa\ Bold.otf")
+    /*font-size: 50px;*/
+}
+
+@font-face {
+	font-family: heading2;
+	src: url("fonts/Nexa\ Light.otf");
+}
+
+@font-face {
+	font-family: explanation;
+	src: url("fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+	font-family: Lato-Light;
+	src: url("fonts/Lato-Light.ttf");
+}
+
+.heading1{
+	font-family: heading1;
+	font-size: 600%;
+	margin-right: 50%;
+	text-align: right;
+}
+
+.heading2 {
+	font-family: heading2;
+	font-size: 250%;
+	margin-right: 50%;
+	text-align: right;
+	padding-bottom: 7%; 
+}
+
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
+* {
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	height: 100%;
+}
+section {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+/*section::after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 100%;
+	height: 80%;
+	background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.8) 80%,rgba(0,0,0,.8) 100%);
+	background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,.8) 80%,rgba(0,0,0,.8) 100%);
+}*/
+
+#section05 {
+	padding-top: 7%;
+	background-image: url('images/earphone.jpg');
+	background-size: cover;
+	/*filter: blur(3px);*/
+
+}
+
+.center-block {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+
+#explanation {
+
+	font-family: explanation;
+	letter-spacing: 0px;
+}
+
+.tryforfree {
+	padding-left: 30%;
+	/*padding-top: 10%;*/
+}
+
+/*#section04 { background: url(http://www.nxworld.net/codepen/css-scroll-down-button/bg04.jpg) center center / cover no-repeat;}*/
+
+#thanks {
+	background-color: #fff;
+}
+#thanks::after {
+	content: none;
+}
+#thanks div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+#thanks h1 {
+	position: static;
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+	margin-bottom: 60px;
+	color: #333;
+}
+#thanks p {
+	color: #333;
+	font : normal 400 20px/1 'Josefin Sans', sans-serif;
+}
+#thanks p a {
+	color: #333;
+	text-decoration: none;
+	transition: color .3s;
+}
+#thanks p a:hover {
+	color: #888;
+}
+.demo a {
+	position: absolute;
+	bottom: -250px;
+	left: 65%;
+	/*right: 50%;*/
+	text-align: center;
+	z-index: 2;
+	display: inline-block;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	color: #fff;
+	font : normal 400 20px/1 'Josefin Sans', sans-serif;
+	letter-spacing: .1em;
+	text-decoration: none;
+	transition: opacity .3s;
+}
+.demo a:hover {
+	opacity: .5;
+}
+
+
+
+
+
+
+#section04 a {
+	padding-top: 60px;
+}
+#section04 a span {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 24px;
+	height: 24px;
+	margin-left: -12px;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-animation: sdb04 2s infinite;
+	animation: sdb04 2s infinite;
+	box-sizing: border-box;
+}
+@-webkit-keyframes sdb04 {
+	0% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+	}
+	20% {
+		-webkit-transform: rotate(-45deg) translate(-10px, 10px);
+	}
+	40% {
+		-webkit-transform: rotate(-45deg) translate(0, 0);
+	}
+}
+@keyframes sdb04 {
+	0% {
+		transform: rotate(-45deg) translate(0, 0);
+	}
+	20% {
+		transform: rotate(-45deg) translate(-10px, 10px);
+	}
+	40% {
+		transform: rotate(-45deg) translate(0, 0);
+	}
+}
+
+.horizline {
+	margin-top: 5%;
+	width: 0.5px;
+}
+
+    /*#menu {
+        text-align: center; }
+    
+    
+    #upload_icon {
+        // Giving equal sizes to each element
+        width:    250px;
+        height:   375px;
+        
+        // Positioning elements in lines
+        display:  inline-block;
+        
+        // This is necessary for position:absolute to work as desired
+        position: relative;
+        
+        // Preventing zoomed images to grow outside their elements
+        overflow: hidden; }
+    
+    
+        #upload_icon img {
+            // Stretching the images to fill whole elements
+            width:       100%;
+            height:      100%;
+        
+            // Preventing blank space below the image
+            line-height: 0;
+    
+            // A one-second transition was to disturbing for me
+            -webkit-transition: all 0.3s ease;
+            -moz-transition:    all 0.3s ease;
+            -o-transition:      all 0.3s ease;
+            -ms-transition:     all 0.3s ease;
+            transition:         all 0.3s ease; }
+    
+            #upload_icon img:hover {
+                // Making images appear bigger and transparent on mouseover
+                opacity: 0.5;
+                width:   120%;
+                height:  120%; }
+    
+        #upload_icon .text {
+            // Placing text behind images
+            z-index: -10;     
+        
+            // Positioning text top-left conrner in the middle of elements
+            position: absolute;
+            top:      50%;
+            left:     50%; }
+        
+            #upload_icon .text p {
+                // Positioning text contents 50% left and top relative
+                   to text container's top left corner
+                margin-top:  -50%; 
+                margin-left: -50%; }*/
+
+
+/*a {
+	padding-top: 60px;
+}
+a span {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 24px;
+	height: 24px;
+	margin-left: -12px;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);*/
+	/*box-sizing: border-box;*/
+
+
+/*
+h1 {
+
+	margin-left: 160px;
+	font-weight: normal;
+	color: #2B4566;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+	position: relative;
+	font-size: 120px;
+	text-align: left;
+	font-family: heading1;
+	font-size: 20px;
+}
+
+
+/*
+.intro {
+	color: slategray;
+	font-size: 20px;
+	margin-left: 15%;
+	margin-top: 5%;
+	position: relative;
+	width: 50%;
+	text-align: left;
+}*//*
+body {
+    background: white url("images/black_denim1.jpg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+}/**/
+/*a.list {
+	margin: 1em 0 .6em 21%;
+    position: relative;
+    color: grey;
+    word-spacing: 150px;
+    font-size: 15px;
+    text-align: left;
+}*/
+
+
+input[type="file"] {
+    display: none;
+}

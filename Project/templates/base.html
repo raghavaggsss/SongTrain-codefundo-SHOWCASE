@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		{% load static %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'core/bootstrap.min.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'core/bootstrap-theme.min.css' %}" />
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<script src="{% static 'core/js/jquery.min.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'core/style.css' %}" />
+		<script src="{% static 'core/bootstrap.min.js' %}"></script>
+		<script src="{% static 'core/js/jquery.min.js' %}"></script>
+		<script src="{% static 'core/js/jqueryui.min.js' %}"></script>
+		<script src="{% static 'core/js/d3.min.js' %}"></script>
+		<script src="{% static 'core/js/d3.layout.min.js' %}"></script>
+		<script src="{% static 'core/js/rickshaw.min.js' %}"></script>
+		<script src="{% static 'core/js/Rickshaw.Graph.HoverDetail.js' %}"></script>
+		<script>var url = "{% url 'record' %}";</script>
+		<script src="{% static 'core/js/Rickshaw.Graph.Legend.js' %}"></script>
+		<link href="{% static 'core/rickshaw.min.css'  %}" rel="stylesheet"/>
+		<link href="{% static 'core/legend.css' %}" rel="stylesheet"/>
+		<link href="{% static 'core/detail.css' %}" rel="stylesheet"/>
+		<link href="{% static 'core/graph.css' %}" rel="stylesheet"/>
+
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+		<style>
+			.social li {
+				background: none repeat scroll 0 0 #B5B5B5;
+				border: 2px solid #B5B5B5;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				-o-border-radius: 50%;
+				-ms-border-radius: 50%;
+				border-radius: 50%;
+				float: left;
+				height: 36px;
+				line-height: 36px;
+				margin: 0 8px 0 0;
+				padding: 0;
+				text-align: center;
+				width: 36px;
+				transition: all 0.5s ease 0s;
+				-moz-transition: all 0.5s ease 0s;
+				-webkit-transition: all 0.5s ease 0s;
+				-ms-transition: all 0.5s ease 0s;
+				-o-transition: all 0.5s ease 0s;
+			}
+			.social li:hover {
+				transform: scale(1.15) rotate(360deg);
+				-webkit-transform: scale(1.1) rotate(360deg);
+				-moz-transform: scale(1.1) rotate(360deg);
+				-ms-transform: scale(1.1) rotate(360deg);
+				-o-transform: scale(1.1) rotate(360deg);
+			}
+			.social li a {
+				color: #EDEFF1;
+			}
+			.social li:hover {
+				border: 2px solid #2c3e50;
+				background: #2c3e50;
+			}
+			.social li a i {
+				font-size: 16px;
+				margin: 0 0 0 5px;
+				color: #EDEFF1 !important;
+			}
+
+			.footer {
+				background: #080808;
+				height: auto;
+				padding-bottom: 30px;
+				position: relative;
+				width: 100%;
+				border-bottom: 1px solid #CCCCCC;
+				border-top: 1px solid #DDDDDD;
+			}
+
+			.footer-bottom {
+				padding-top: 1.5%;
+				padding-bottom: 2%;
+				background: #323737;
+				color: #909595;
+				border-top: 1px solid #DDDDDD;
+				text-align: left;
+				}
+
+			.pull-right {
+				text-align: right;
+				padding-bottom: 2%;
+			}
+
+			.SITEMAP {
+				margin-top: 2%;
+				text-align: center;
+				color: white;
+			}
+
+			.socialicons {
+				padding-top: 2%	;
+			}
+
+			.horizline {
+				color: #CCD1D1;
+			}
+
+			.sitemapentry {
+				margin:0 1% 0 1%;
+			}
+
+			.sitemaphref {
+				color: #909595;
+			}
+
+			nav {
+				padding-right: 1%;
+			}
+
+			.logosongtrain {
+				margin-top: -10px;
+				height: 100px;
+				width: 120px;
+			}
+
+
+			body {
+				background: black;
+			}
+
+		</style>
+
+		{% block content1 %}
+		{% endblock %}	
+    
+    	<title>Song | Train</title>
+   	
+	</head>
+	<body>
+		
+    <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>				
+            </button>
+            {% if user.username %}
+            <a href="{% url 'profile' %}" class="navbar-brand"><strong>SONGTRAIN</strong></a>
+        	{% else %}
+        	<a href="{% url 'home' %}" class="navbar-brand"><strong>SONGTRAIN</strong></a>
+        	{% endif %}
+        </div> 
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">		 		
+            	<li>{% block login %}{% endblock %}</li>
+                <li>
+					{% block logout %}<a href="{% url 'logout' %}">LOGOUT</a>{% endblock %}</li>
+            </ul>
+        </div>
+    </nav>
+		
+		
+	    {% block content2 %}
+	    {% endblock %}
+<!-- 	 <nav role="navigation" class="navbar navbar-inverse navbar-static-bottom" style="height: 200px; background-color: black; color: white;">
+	 	<div class="navbar-header">
+	 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+	 			<span class="sr-only">Toggle navigation</span>
+	 			<span class="icon-bar"></span>
+	 			<span class="icon-bar"></span>
+	 			<span class="icon-bar"></span>
+	 		</button>
+	 	</div>
+
+	 	<div id="navbarCollapse" class="collapse navbar-collapse">
+
+	 		<ul class="nav navbar-nav navbar-right">
+		 		<li><a href="#">ABOUT US</a>
+		 		<li><a href="#">DOCUMENTATION</a>
+		 		<li><a href="#">TUTORIALS</a>
+		 	</ul>
+
+		 	<hr class="horizline">
+		</div>
+	</nav> -->
+
+		<footer class="footer">
+			
+			<div class="container">
+				
+				<div class="row">
+					<div class="col-md-3">
+						<img class="logosongtrain" src="/static/core/images/pngforlogo(donotuse).png">
+					</div>
+
+					<div class="col-md-9">
+						<div class="row">
+							<div class="socialicons  col-md-3 col-md-offset-4 ">
+								<ul class="social center-block list-unstyled">
+									<li> <a href="#"> <i class="fa fa-facebook">   </i> </a> </li>
+									<li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+									<li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="SITEMAP">
+								<span class="sitemapentry"><a href="#" class="sitemaphref">HOME</a></span>|
+								<span class="sitemapentry"><a href="#" class="sitemaphref">TUTORIALS</a></span>|
+								<span class="sitemapentry"><a href="#" class="sitemaphref">DOCUMENTATION</a></span>|
+								<span class="sitemapentry"><a href="#" class="sitemaphref">THE TEAM</a></span>
+							</div>
+						</div>
+					</div>
+	            </div>
+
+		        <!--<div class="SITEMAP"> 
+		        	<ul class="list-inline">
+		        		<li><a href="#">HOME</a>
+		        		<li><a href="#">TUTORIALS</a>
+		        		<li><a href="#">DOCUMENTATION</a>
+		        		<li><a href="#">THE TEAM</a>	
+		        	</ul>
+		        </div>
+ -->			
+
+
+	        </div>
+
+	    </footer>
+
+	    <!-- <hr class="horizline"> -->
+
+	    <div class="footer-bottom">
+	    	<div class="container pull-left">
+	    		<i>Created by Team Voicers, Indian Institute of Technology, Kanpur</i>
+	    	</div>
+
+	    	<div class="container pull-right">
+	    		<i>The only advice a teacher can give is to think in front of his students</i>
+	    	</div>
+	   	</div>
+
+	</body>
+
+</html>

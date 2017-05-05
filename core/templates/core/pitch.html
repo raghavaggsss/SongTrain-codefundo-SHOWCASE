@@ -1,0 +1,481 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content1 %}
+<style>
+
+body {
+	background: #000000;
+}
+
+#explanation {
+	font-family: explanation;
+	font-size: 120%;
+	margin-top: 10%;
+}
+
+#para1 {
+	display: none;
+}
+
+#para2 {
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 3%;
+}
+
+.form-inline {
+	margin-top: 7%;
+	text-align:center;
+}
+
+#chart {
+	margin-left: 5%;
+}
+
+#vocals {
+	font-size: 0px;
+}
+
+#ifrmsset {
+	margin-left:10%;
+	font-family: explanation;
+	font-size: 120%;
+}
+
+#legend {
+	vertical-align: top;
+	margin: 0 0 0 10px;
+}
+
+.reload_and_leaderboard {
+	margin-top: 3%;
+	text-align: center;
+	/*margin-bottom: 20%;*/
+}
+
+#headphones {
+	font-size: 160%;
+	font-weight: bold;
+	margin-bottom: 2%;
+}
+
+.infosign {
+	font-size: 120%;
+	margin-left: .75%;
+	opacity: 0.7;
+}
+
+.getleaderboard {
+	margin-right: 1%;
+	margin-bottom: 0%; 
+}
+
+.SITEMAP {
+	margin-top: 3%;
+}
+
+.rmsupanddown {
+	text-align: right;
+}
+
+.tuningfactor {
+	text-align: left;
+}
+
+.input-number {
+	width: 30%;
+}
+
+/* countdown start */
+$d: 250;
+$w: 20;
+$t: 5;
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -($d / 2)+px;
+    margin-left: -($d / 2)+px;
+}
+
+/* -- CIRCLE -- */
+
+.circle {
+    width: $d+px;
+    height: $d+px;
+    position: relative;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 $w+px rgba(0,0,0,0.5);
+}
+
+.l-half, .r-half {
+    float: left;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: $w+px solid #fff;
+        -webkit-animation-duration: $t+s;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-fill-mode: forwards;
+    }
+        
+}
+
+.l-half:before {
+    border-right: none;
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+    -webkit-transform-origin: center right;
+    -webkit-animation-name: l-rotate;
+}
+    
+.r-half:before {
+    border-left: none;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    -webkit-transform-origin: center left;
+    -webkit-animation-name: r-rotate;
+}
+
+/* -- TIMER -- */
+
+.count {
+    position: absolute;
+    width: 100%;
+    line-height: $d+px;
+    text-align: center;
+    font-weight: 800;
+    font-size: (($d - ($w * 2)) / 2)+px;
+    font-family: Helvetica;
+    color: #000;
+    z-index: 2;
+    -webkit-animation: fadeout .5s ($t + 1)+s 1 linear;
+    -webkit-animation-fill-mode: forwards;
+}
+/* countdown end */
+</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+
+var rms_valuey=0;
+   $('.rms_value-right-plus').click(function(e){
+        
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var rms_value = parseInt($('#rms_value').val());
+        
+        // If is not undefined
+            
+            $('#rms_value').val(rms_value + 1);
+
+          
+            // Increment
+        
+    });
+
+     $('.rms_value-left-minus').click(function(e){
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var rms_value = parseInt($('#rms_value').val());
+        
+        // If is not undefined
+      
+            // Increment
+            if(rms_value>0){
+            $('#rms_value').val(rms_value - 1);
+            }
+    });
+    
+});
+</script>
+
+{% endblock %}
+
+{% block content2 %}
+
+	<div id="para1">
+		<p>
+			<button onclick="this.innerText = togglePlayback()">use demo audio</button>
+			<button onclick="toggleLiveInput()">use live input</button>
+			<button onclick="toggleOscillator()">use oscillator</button>
+			<!--<button onclick="updatePitch(0);">sample</button>-->
+		</p>
+
+		<div id="detector" class="vague">
+			<div class="pitch"><span id="pitch">--</span>Hz</div>
+			<div class="note"><span id="note">--</span></div>
+			<canvas id="output" width=300 height=42></canvas>
+			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
+
+		</div>
+	</div>
+
+<div id="para2">
+	<!-- <p id="explanation"> 
+		<div id="headphones">
+                        Use HEADPHONES for best experience.
+                </div>
+
+		We filter your mike noise using rms values. Please see if the default Rms value of 18 works for you.
+		<br>
+		If you think that your mic input is too less, decrease the Rms.
+		<br>
+		If you think that your mic input is too noisy, increase the Rms.
+		<br>
+		The Rms range is 1-20 (both inclusive).
+	</p> -->
+
+	<form class="form-inline" role="form" method="post" enctype="multipart/form-data">
+	    {% csrf_token %}
+		<div class="row">
+			<div class="col-md-6 rmsandupdown">
+				<div class="form-group input-group ">
+                    <!-- <label for="inputEmail" class="control-label">RMS:</label> -->
+                    
+                    <span class="input-group-btn">
+                        <button type="button" class="rms_value-left-minus btn btn-primary btn-number"  data-type="minus" data-field=""">
+                          <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                    </span>
+                    <input type="text" id="rms_value" name="rmsValue" class="form-control input-number" default-value="18" value="{{rmsValue}}" min="1" max="21" size="1">
+                    <span class="input-group-btn">
+                        <button type="button" class="rms_value-right-plus btn btn-primary btn-number" data-type="plus" data-field="">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </span>
+				</div>
+			</div>
+			<div class="col-md-6 tuningfactor">
+		<button type="submit" class="btn btn-success" value="Start Singing">RESET TUNING FACTOR</button>
+		<a href="#" data-toggle="tooltip" title="Default tooltip"><span class="glyphicon glyphicon-info-sign infosign"></span></a>
+			</div>
+		</div>
+	</form>
+</div>
+
+	
+<!--{% if rmsValue %}-->
+	<!--<div id="ifrmsset">-->
+		<!--You have set the rms value <span id="rmsValue"><b>{{rmsValue}}</b></span>-->
+	<!--</div>-->
+<!--{% endif %}-->
+	<div class="circle center">
+	    <div class="count">5</div>
+	    <div class="l-half"></div>
+	    <div class="r-half"></div>
+	</div>
+
+	<style type="text/css">
+	    @-webkit-keyframes l-rotate {
+	        0% { -webkit-transform: rotate(0deg); }
+	        50% { -webkit-transform: rotate(-180deg); }
+	        100% { -webkit-transform: rotate(-180deg); }
+	    }
+	    
+	    @-webkit-keyframes r-rotate {
+	        0% { -webkit-transform: rotate(0deg); }
+	        50% { -webkit-transform: rotate(0deg); }
+	        100% { -webkit-transform: rotate(-180deg); }
+	    }
+	    
+	    @-webkit-keyframes fadeout {
+	        0% { opacity: 1; }
+	        100% { opacity: 0.5; }
+	    }
+	</style>
+
+<script>
+	$(document).ready(function() {
+    var n = $('.count').html() - 1;
+    setInterval(function() {
+        if (n >= 0) { $('.count').html(n--); }
+    }, 1000);
+});
+</script>
+
+
+<div class="container">
+	<div class="row">
+		<div id="chart" class="col-md-9"></div>
+
+
+
+<!--<audio controls onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 5000)">
+<source src="/media/songs/s.wav"  type="audio/wav">
+    </audio> -->
+    	<div id="legend" class="col-md-2"></div>
+   	</div>
+</div>
+		<div id="vocals"> {{vocals_url}}</div>
+		<div class="reload_and_leaderboard">
+			<div class = "btn btn-success getleaderboard" onclick = "window.location.href = '{% url 'leaderboard' %}';" id = "start">
+        	GET LEADERBOARD
+      		</div>
+
+      		<div class="btn btn-success" onclick="window.location.reload(true);">RETRY</div>
+      		<br><br>
+
+{% csrf_token %}
+	
+<script src="{% static 'core/js/pitch.js' %}"></script>
+<script>
+
+var graph;
+var time_shift;
+var graph_visible_width;
+var pixel_per_second;
+var elem;
+
+function plotgraph() {
+var data = [];
+var data1 = [];
+
+for (var i = 0; i < a.length; i++)
+{
+    data.push({x: time_array[i], y: a[i]});
+
+}
+
+for (var i = 0; i < a1.length; i++)
+{
+    data1.push({x: time_array1[i], y: a1[i]});
+
+}
+
+var data3 = [{x: 0, y : null}, {x: theBuffer.duration, y: null},];
+
+
+
+var tv = 250;
+graph = new Rickshaw.Graph( {
+        element: document.querySelector("#chart"),
+        renderer: 'line',
+        // padding: {top: 0.05},
+        width: theBuffer.duration*50,
+        height: 600,
+        max: 600,
+        series: [{data: data, color: 'steelblue', name: 'karaoke note'}, {data: data1, color: 'gold', name: 'your note'}, {data: data3, name:'Legend'}]
+        /*new Rickshaw.Graph( {
+	element: document.getElementById("chart"),
+	width: 900,
+	height: 500,
+	renderer: 'line',
+	series: new Rickshaw.Series.FixedDuration([{ name: 'one' }], undefined, {
+		timeInterval: tv-240,
+		maxDataPoints: 100, })*/
+
+
+} );
+graph.render();
+    var xAxis = new Rickshaw.Graph.Axis.X({
+  graph: graph,
+  }) ;
+  var yAxis = new Rickshaw.Graph.Axis.Y({
+  graph: graph,
+  }) ;
+  xAxis.render(); yAxis.render();
+/*var iv = setInterval( function() {
+
+	var data = { one: a[i] };
+    i++;
+	var randInt = Math.floor(Math.random()*100);
+
+
+	graph.series.addData(data);
+	graph.render();
+
+}, tv );*/
+	var getLatestData = function() {
+		for (var i = data.length; i < a.length; i++)
+		{
+			data.push({x:time_array[i], y:a[i]});
+		}
+		for (var i = data1.length; i < a1.length; i++)
+		{
+			data1.push({x:time_array1[i], y:a1[i]});
+		}
+		graph.update();
+
+	}
+
+ setInterval( function() {
+	getLatestData();
+
+
+}, 100	);
+ graph_visible_width = window.innerWidth*0.8;
+ elem = document.getElementById('chart');
+ pixel_per_second = elem.scrollWidth/theBuffer.duration;
+ time_shift = graph_visible_width / pixel_per_second / 2 ;
+
+/*var fxnnn = window.setInterval(function() {
+  var elem = document.getElementById('chart');
+  elem.scrollLeft += elem.scrollWidth/theBuffer.duration*2;
+},2000);*/
+var stopID;
+function fxnn() {
+ stopID = window.setInterval(function() {
+  var elem = document.getElementById('chart');
+  elem.scrollLeft += elem.scrollWidth/theBuffer.duration*2;
+},2000);
+//var elem = document.getElementById('chart');
+//var x = elem.scrollWidth/theBuffer.duration*2;
+//elem.animate({scrollLeft: '+=250px'}, 2000, function () {elem.animate({scrollLeft: 0}, 800);});
+
+}
+
+function fxnn1() {
+	window.clearInterval(stopID);
+	//setTimeout(function() {elem.scrollLeft = 0}, 3000);
+	//elem.animate({scrollLeft: '0'}, 80, function() {alert('helo')});
+};
+setTimeout(fxnn,time_shift*1000);
+setTimeout(fxnn1, theBuffer.duration*1000);
+
+	//var smoother = new Rickshaw.Graph.Smoother( {
+	//graph: graph,
+	//element: document.querySelector('#smoother')
+//} );
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+	graph: graph,
+
+
+} );
+
+var legend = new Rickshaw.Graph.Legend( {
+	graph: graph,
+	element: document.getElementById('legend')});
+
+}
+</script>
+
+
+{% endblock %}

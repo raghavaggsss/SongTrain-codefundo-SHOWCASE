@@ -1,79 +1,26 @@
-Our webapp:https://songtrain-3-suryabulusu.c9users.io/
 
-INTRODUCTION:
-SongTrain is a web application that is an online karaoke and a frequency analyser.
+Usage
 
+1. This app is free to use while it is in the development phase.
+2. Since, the app is not yet used for commercial purposes, the user can input songs by himself.
+3. The app creates a karaoke of the song the user uploads. (There is a limit to the length of the song for now which is 1 minute and the only formats allowed are mp3 and wav. Also the quality of the karaoke can be controlled based on the requirements.)
+4. Since the generation of karaoke requires heavy processing, we request the user to revisit us after he gets an email from us about the successful karaoke generation.
+5. If the user inputs a song whose karaoke is already generated, he gets the email instantly( handled via hashing).
+6. The user is then required to click on the link in the email and input his credentials and proceed to the singing page.
+7. The singing page has a calibration tool embedded(called Rms) for calibrating the user’s microphone and also the noise control for the song(This step is crucial since microphone thresholds vary from device to device. Also the noise levels depend upon the type of song the user inputs).
+8. On the singing page the karaoke starts to play after 5 seconds so the user is expected to grant the microphone access as prompted on the page in time.
+9. The user is then required to sing along with the karaoke (using headphones so that we can clearly evaluate). The user can see his pitch plot and karaoke's pitch plot in real time.
+10. The user can try singing multiple times simply by reloading the page singing page.
+11. After the user is satisfied and presses the "proceed" button, he is redirected to the leaderboard page where he can see his scores along with the scores of people who sang the same songs as he did as well as his score history.
 
-HOW TO USE:
-1) Open c9.io and create an account.
-
-2) Create a new workspace. Give it any title and description. Select 'django' template and create workspace.
-
-3) In the terminal, type 
-
-	git clone https://github.com/raghavaggsss/SongTrain.git
-	cd SongTrain
-
-4) Click on Run Project button on the top center of the page
-
-5) In the Django-Running terminal, there is an option to change working directory (CWD). Click on CWD and select SongTrain
-
-6) now sudo pip install all required stuff
-
-7) Run project again
-
-😎 Open the given link
-
-9) take a look at app
-
- _________OR__________
- 
- You can do the above steps on a Linux system as described in the video
- 
-The app returns the karaoke version of the input file.
-Plug in your headphones and sing to the music. The app records your vocals, and returns a frequency vs time graph comparing your singing to the original. The graph reveals where you need to increase or decrease your pitch to hit those high or low notes. Practice, and end up mastering the notes! Compete with your friends to get the closest-to-original graph.
+Citations-
+Karaoke - http://www.durrieu.ch/research/jstsp2010.html
+Pitch Detection - https://github.com/cwilso/pitchdetect
+Dynamic Graph - https://github.com/shutterstock/rickshaw
+Design - https://github.com/twbs/bootstrap
+Jquery - https://github.com/jquery/jquery
+Wallpapers - pexels.com
+Demo Song - Tujhe Sochta Hoon (Sony Music Entertainment India Pvt. Ltd)
 
 
-FOR DEVELOPERS:
-
-This is an open-source project-
-Github link: https://github.com/raghavaggsss/SongTrain
-
-This web app has been designed using django 1.10 and python 2.7.12
-
-The code may require to install the following python libraries:-
-aubio
-matplotlib
-numpy 1.11.0(newer versions won't work)
-pygame
-pygraphics
-pytz
-scikits
-scipy
-wave
-
-Delete all the .wav files that are generated in the media folder on running of code. (We wanted to add the files to database but we didn't have the time.)
-
-BRIEFLY UNDERSTANDING THE ALGORITHMS:
-
-separateLeadStereoParam.py:
-This file is our karaoke generator. It accepts a .wav file as input. SIMM.py is used in this code.
-
-sound_record.py
-Currently our app requires user to input recording file. We were planning to use this code to do the same on the app itself, but due to some isses and shortage of time we weren't able to include this code.
-
-compare.py
-returns 3 arrays:
-
-1. Frequency of recording (say f1)
-2. Frequency of kareoke file (say f2)
-3. Corresponding time values (say t)
- 
-freq_plot
-This file receives the 3 arrays.
-Here we use matplotlib library to generate f1 and f2 vs t graphs.
-
-
-
-The quality of the karaoke primarily depends on the number of iterations parameter set in the /separateLeadStereoParam.py file. the 'number of iterations' parameter is set to 15 by default but you can easily change it to anything by changing the default value of this parameter in this file.You can search for 'number of iterations' in the code and set the default to something else.Something like 500-1000 iterations give you perfect clear karaoke
-
+Youtube Demo Link - https://youtu.be/iwKzN4ybRDM

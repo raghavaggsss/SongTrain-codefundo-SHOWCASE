@@ -6,9 +6,6 @@
 {% block content1 %}
 <style>
 
-body {
-	background: #000000;
-}
 
 #explanation {
 	font-family: explanation;
@@ -77,7 +74,7 @@ body {
 	margin-top: 3%;
 }
 
-.rmsupanddown {
+.rmsandupdown {
 	text-align: right;
 }
 
@@ -94,22 +91,26 @@ $d: 250;
 $w: 20;
 $t: 5;
 
+/*html, body { height: 100%; }
+*/
+
+
+
 .center {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -($d / 2)+px;
-    margin-left: -($d / 2)+px;
+    padding-left: 40%;
 }
 
 /* -- CIRCLE -- */
 
 .circle {
-    width: $d+px;
-    height: $d+px;
+    width: 100px;
+    height: 100px;
     position: relative;
     border-radius: 999px;
-    box-shadow: inset 0 0 0 $w+px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 0 20px rgba(0,0,0,0.1); /*background color of annular ring*/
 }
 
 .l-half, .r-half {
@@ -117,23 +118,22 @@ $t: 5;
     width: 50%;
     height: 100%;
     overflow: hidden;
-    
-    &:before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        border: $w+px solid #fff;
-        -webkit-animation-duration: $t+s;
-        -webkit-animation-iteration-count: 1;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-fill-mode: forwards;
-    }
+   
         
 }
 
 .l-half:before {
+  content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        
+        box-sizing: border-box;
+        border: 20px solid #000; /*color on annular ring for left half*/
+        -webkit-animation-duration: 5s;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-fill-mode: forwards;
     border-right: none;
     border-top-left-radius: 999px;
     border-bottom-left-radius: 999px;
@@ -142,6 +142,17 @@ $t: 5;
 }
     
 .r-half:before {
+  content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 20px solid #000;
+        
+        -webkit-animation-duration: 5s;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-fill-mode: forwards;
     border-left: none;
     border-top-right-radius: 999px;
     border-bottom-right-radius: 999px;
@@ -154,17 +165,22 @@ $t: 5;
 .count {
     position: absolute;
     width: 100%;
-    line-height: $d+px;
+    line-height: 100px;
     text-align: center;
     font-weight: 800;
-    font-size: (($d - ($w * 2)) / 2)+px;
+    font-size: 30px;
     font-family: Helvetica;
     color: #000;
     z-index: 2;
-    -webkit-animation: fadeout .5s ($t + 1)+s 1 linear;
+    -webkit-animation: fadeout .1s 5.5s 1 linear;
     -webkit-animation-fill-mode: forwards;
 }
-/* countdown end */
+
+.containercountdown {
+	padding-top: 7%;
+	padding-bottom: 8%; 
+	/*-webkit-animation: fadeout .1s 5.5s 1 linear;*/
+}
 </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -280,17 +296,23 @@ var rms_valuey=0;
 	</form>
 </div>
 
-	
-<!--{% if rmsValue %}-->
-	<!--<div id="ifrmsset">-->
-		<!--You have set the rms value <span id="rmsValue"><b>{{rmsValue}}</b></span>-->
-	<!--</div>-->
-<!--{% endif %}-->
-	<div class="circle center">
-	    <div class="count">5</div>
-	    <div class="l-half"></div>
-	    <div class="r-half"></div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript"> 
+      $(document).ready( function() {
+        $('.containercountdown').delay(5000).fadeOut();
+      });
+    </script>
+<div class="container containercountdown">
+	<div class="row">
+		<div class="col-md-offset-5 col-md-2">
+			<div class="circle center">
+			    <div class="count">5</div>
+			    <div class="l-half"></div>
+			    <div class="r-half"></div>
+			</div>
+		</div>
 	</div>
+</div>
 
 	<style type="text/css">
 	    @-webkit-keyframes l-rotate {
@@ -307,7 +329,7 @@ var rms_valuey=0;
 	    
 	    @-webkit-keyframes fadeout {
 	        0% { opacity: 1; }
-	        100% { opacity: 0.5; }
+	        100% { opacity: 0; }
 	    }
 	</style>
 
@@ -321,6 +343,14 @@ var rms_valuey=0;
 </script>
 
 
+
+	
+<!--{% if rmsValue %}-->
+	<!--<div id="ifrmsset">-->
+		<!--You have set the rms value <span id="rmsValue"><b>{{rmsValue}}</b></span>-->
+	<!--</div>-->
+<!--{% endif %}-->
+	
 <div class="container">
 	<div class="row">
 		<div id="chart" class="col-md-9"></div>

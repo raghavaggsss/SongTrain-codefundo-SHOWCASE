@@ -2,88 +2,176 @@
 
 {% block content1  %}
 <style>
-    /*
- * Housekeeping
- */
 
-
-
-h1, p {
-    margin: 0;
-    padding: 0 0 .5em;
+.grid {
+  position: relative;
+  clear: both;
+  margin: 0 auto;
+  padding: 1em 0 4em;
+  max-width: 1000px;
+  list-style: none;
+  text-align: center;
 }
 
-.container1 {
-    margin: 0 auto;
-    max-width: 330px;
+/* Common style */
+.grid figure {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 320px;
+  max-width: 480px;
+  max-height: 360px;
+  width: 48%;
+  height: auto;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
 }
 
-/*
- * Caption component
- */
-.caption1 {
-    position: relative;
-    overflow: hidden;
-
-    /* Only the -webkit- prefix is required these days */
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.8;
 }
 
-.caption1::before {
-    content: ' ';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: transparent;
-    transition: background .15s ease-out;
+.grid figure figcaption {
+  padding: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-.caption1:hover::before {
-    background: rgba(0, 0, 0, .5);
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
 }
 
-.caption__media {
-    display: block;
-    min-width: 100%;
-    max-width: 100%;
-    height: auto;
+.grid figure figcaption,
+.grid figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.caption__overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 10px;
-    color: white;
-
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-
-    transition: -webkit-transform .15s ease-out;
-    transition:         transform .15s ease-out;
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
 }
 
-.caption1:hover .caption__overlay {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+.grid figure h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
 }
 
-.caption__overlay__title {
-    -webkit-transform: translateY( -webkit-calc(-100% - 10px) );
-            transform: translateY( calc(-100% - 10px) );
-
-    transition: -webkit-transform .15s ease-out;
-    transition:         transform .15s ease-out;
+.grid figure h2 span {
+  font-weight: 800;
 }
 
-.caption1:hover .caption__overlay__title {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+.grid figure h2,
+.grid figure p {
+  margin: 0;
+}
+
+.grid figure p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+}
+
+/* Individual effects */
+
+/*---------------*/
+/***** Julia *****/
+/*---------------*/
+
+figure.effect-julia {
+  background: #2f3238;
+}
+
+figure.effect-julia img {
+  max-width: none;
+  height: 400px;
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, transform 1s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+figure.effect-julia figcaption {
+  text-align: left;
+}
+
+figure.effect-julia h2 {
+  position: relative;
+  padding: 0.5em 0;
+}
+
+figure.effect-julia p {
+  display: inline-block;
+  margin: 0 0 0.25em;
+  padding: 0.4em 1em;
+  background: rgba(255,255,255,0.9);
+  color: #2f3238;
+  text-transform: none;
+  font-weight: 500;
+  font-size: 75%;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(-360px,0,0);
+  transform: translate3d(-360px,0,0);
+}
+
+figure.effect-julia p:first-child {
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+
+figure.effect-julia p:nth-of-type(2) {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+figure.effect-julia p:nth-of-type(3) {
+  -webkit-transition-delay: 0.05s;
+  transition-delay: 0.05s;
+}
+
+figure.effect-julia:hover p:first-child {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+figure.effect-julia:hover p:nth-of-type(2) {
+  -webkit-transition-delay: 0.05s;
+  transition-delay: 0.05s;
+}
+
+figure.effect-julia:hover p:nth-of-type(3) {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+figure.effect-julia:hover img {
+  opacity: 0.4;
+  -webkit-transform: scale3d(1.1,1.1,1);
+  transform: scale3d(1.1,1.1,1);
+}
+
+figure.effect-julia:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 
 </style>
@@ -98,30 +186,30 @@ Welcome, {{user.first_name}}!
 {% for song in songs %}
 <div class="col-md-3">
 
-    <article class="caption1">
-        <img class="caption__media" src="http://farm7.staticflickr.com/6088/6128773012_bd09c0bb4e_z_d.jpg" />
-        <div class="caption__overlay">
-            <h1 class="caption__overlay__title">{{song.name_of_song}}</h1>
-            <p class="caption__overlay__content">
-                <button class="btn btn-primary">
-                  SING
-                </button>
-                <button class="btn btn-primary">
-                  LEADERBOARD
-                </button>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalHistory">
-                  SCORE HISTORY
-                </button>
-                <button class="btn btn-primary">
-                  DOWNLOAD
-                </button>                
-            </p>
-        </div>
-    </article>
+<div class="content">
+        
+        <div class="grid">
+          <figure class="effect-julia">
+            <img src="http://www.spectrumglass.com/stained-glass/img/products/system96/5232SF.JPG" alt="img21"/>
+            <figcaption>
+              <h2><span>{{song.name_of_song}}</span></h2>
+              <div>
+                <br><br>
+                <p>Download</p><br>
+                <p data-toggle="modal" data-target="#exampleModalHistory">Score History</p><br>
+                <p>Start Singing</p><br>
+                <p>Leaderboardd</p><br>
+              </div>
+              
+            </figcaption>     
+          </figure>
+          
+      </div>
+</div>
 
 </div>
 {% endfor %}
-
+</div>
 <div class="modal fade" id="exampleModalHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

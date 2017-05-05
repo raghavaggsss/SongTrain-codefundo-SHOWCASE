@@ -207,7 +207,7 @@ Welcome, {{user.first_name}}!
                     document.getElementById("{{song.full_name}}").href = arr["{{forloop.counter}}"];
                   </script>
                 <p class="scores" id="{{song.score}}" data-toggle="modal" data-target="#exampleModalHistory" data-backdrop="static" data-keyboard="false">Score History</p><br>
-                <p id="{{song.name_of_song}}" onclick="">Start Singing</p><br>
+                <p class="start_singing" id="{{song.name_of_song}}">Start Singing</p><br>
                 <p  data-toggle="modal" data-target="#exampleModalLeaderboard">Leaderboard</p><br>
               </div>
               
@@ -220,6 +220,44 @@ Welcome, {{user.first_name}}!
 </div>
 {% endfor %}
 </div>
+<script>
+    $('.start_singing').click(function(){
+        csrftoken = getCookie('csrftoken');
+                    setup();
+        var song_name = this.id;
+         var data = {'song_name': song_name};
+    $.post(url, data, function(response){
+        if ( response === 'success'){console.log("hurray");}
+    });
+})
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+function setup() {$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+})};
+</script>
 <div class="modal fade" id="exampleModalHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalHistoryLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

@@ -269,27 +269,27 @@ def karaoke_success(request):
 #     karaoke_url = 'media/karaoke/' + to_email_id + song_name
 #     return render(request, 'core/record.html', {'karaoke_url': karaoke_url, 'recording_name': to_email_id + song_name})
 
-
+@login_required(login_url='login')
 def record(request):
-    song_name = request.session['song']
-    to_email_id = request.session['email']
-    vocals_url = to_email_id + song_name
     default_rms = 18
-    if request.method == 'POST':
-        if request.POST.get('rmsValue',''):
-            rmsValue = request.POST.get('rmsValue','')
-            return render(request, 'core/pitch.html', {'rmsValue': rmsValue, 'vocals_url': vocals_url})
-        if 'score' in request.POST:
-            score1 = request.POST['score']
-            song_and_email_exist = songDB.objects.filter(full_name=to_email_id + song_name)
-            prev = song_and_email_exist[0].score
-            song_and_email_exist.update(score=prev + ' ' + score1)
-            score_array = (prev + ' ' + score1).split()
-            print score_array
+    if 'song_name' in request.POST:
+        vocals_url = request.user.username + request.POST['song_name']
+        request.session['vocals_url'] = vocals_url
+        request.session['song_name'] = request.POST['song_name']
 
-            return HttpResponse('success')
-        return HttpResponse('fail')
-
+    song_name = request.session['song_name']
+    print song_name
+    vocals_url = request.session['vocals_url']
+    if request.POST.get('rmsValue',''):
+        rmsValue = request.POST.get('rmsValue','')
+        return render(request, 'core/pitch.html', {'rmsValue': rmsValue, 'vocals_url': vocals_url})
+    if 'score' in request.POST:
+        score1 = request.POST['score']
+        song_and_user_exist = songDB.objects.filter(full_name=request.user.username + song_name)
+        prev = song_and_user_exist[0].score
+        song_and_user_exist.update(score=prev + ' ' + score1)
+        #score_array = (prev + ' ' + score1).split()
+        return HttpResponse('success')
     return render(request, 'core/pitch.html', {'vocals_url': vocals_url, 'rmsValue':default_rms})
 
 

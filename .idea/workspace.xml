@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d5e7f31-e92a-48ce-8192-01bdcd03e88f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/templates/base.html" afterPath="$PROJECT_DIR$/Project/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/static/core/js/pitch.js" afterPath="$PROJECT_DIR$/core/static/core/js/pitch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/static/core/style.css" afterPath="$PROJECT_DIR$/core/static/core/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/core/pitch.html" afterPath="$PROJECT_DIR$/core/templates/core/pitch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/core/profile.html" afterPath="$PROJECT_DIR$/core/templates/core/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sendEmail.py" afterPath="$PROJECT_DIR$/sendEmail.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -78,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/templates/core/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="829">
+            <state relative-caret-position="13959">
               <caret line="517" column="14" lean-forward="false" selection-start-line="517" selection-start-column="14" selection-end-line="517" selection-end-column="14" />
               <folding>
                 <element signature="e#7423#7430#0" expanded="true" />
@@ -91,6 +86,16 @@
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#section#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendEmail.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sendEmail.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -148,6 +153,7 @@
         <option value="$PROJECT_DIR$/core/templates/core/pitch.html" />
         <option value="$PROJECT_DIR$/core/static/core/style.css" />
         <option value="$PROJECT_DIR$/core/templates/core/profile.html" />
+        <option value="$PROJECT_DIR$/sendEmail.py" />
       </list>
     </option>
   </component>
@@ -604,6 +610,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -725,13 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sendEmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/core/leaderboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
@@ -832,7 +832,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/core/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="829">
+        <state relative-caret-position="13959">
           <caret line="517" column="14" lean-forward="false" selection-start-line="517" selection-start-column="14" selection-end-line="517" selection-end-column="14" />
           <folding>
             <element signature="e#7423#7430#0" expanded="true" />
@@ -842,6 +842,14 @@
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#section#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>

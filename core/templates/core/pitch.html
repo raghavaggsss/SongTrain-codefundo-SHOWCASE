@@ -340,7 +340,29 @@ var rms_valuey=0;
 });
 </script>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">SCORE<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h4>
 
+      </div>
+      <div class="modal-body">
+          <div id="score_modal"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		 <div class = "btn btn-success getleaderboard" onclick = "window.location.href = '{% url 'leaderboard' %}';" id = "start">
+        	GET LEADERBOARD
+      		</div>
+      		<div class="btn btn-success" onclick="window.location.reload(true);">RETRY</div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 	
 <!--{% if rmsValue %}-->

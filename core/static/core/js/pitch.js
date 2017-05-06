@@ -640,7 +640,8 @@ function score_calculate(){
 function sendScore(score){
     var data = {'score': score};
     $.post(url, data, function(response){
-        if(response === 'success'){ setTimeout(function() {alert('Your score is ' + score);}, 1000) }
+        if(response === 'success'){ setTimeout(function() {$('#score_modal').html(score);
+        $('#myModal').modal('show')}, 1000) }
         else{ alert('Error! 😞'); }
     });
 }

@@ -635,9 +635,13 @@ function score_calculate(){
 		}
 	return score_percentage = (1-(error1/50)/time_array.length)*100;
 }
+function round(value, decimals) {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
 
 
 function sendScore(score){
+    score = round(score,2);
     var data = {'score': score};
     $.post(url, data, function(response){
         if(response === 'success'){ setTimeout(function() {$('#score_modal').html(score);

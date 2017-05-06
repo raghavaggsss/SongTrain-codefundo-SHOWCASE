@@ -212,6 +212,10 @@ section {
 	width: 0.5px;
 }
 
+#chart {
+    overflow-x: scroll;
+}
+
     /*#menu {
         text-align: center; }
     
@@ -330,3 +334,4 @@ body {
 input[type="file"] {
     display: none;
 }
+

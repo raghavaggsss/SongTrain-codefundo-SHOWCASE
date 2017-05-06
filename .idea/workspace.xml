@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d5e7f31-e92a-48ce-8192-01bdcd03e88f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/templates/base.html" afterPath="$PROJECT_DIR$/Project/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/static/core/js/pitch.js" afterPath="$PROJECT_DIR$/core/static/core/js/pitch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/static/core/style.css" afterPath="$PROJECT_DIR$/core/static/core/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/core/pitch.html" afterPath="$PROJECT_DIR$/core/templates/core/pitch.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/core/profile.html" afterPath="$PROJECT_DIR$/core/templates/core/profile.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,20 +25,91 @@
       <file leaf-file-name="pitch.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/templates/core/pitch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="364" column="6" lean-forward="false" selection-start-line="364" selection-start-column="6" selection-end-line="364" selection-end-column="6" />
+            <state relative-caret-position="1480">
+              <caret line="509" column="2" lean-forward="true" selection-start-line="509" selection-start-column="2" selection-end-line="509" selection-end-column="2" />
               <folding>
-                <element signature="e#8918#8925#0" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="e#8953#8960#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pitch.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css.save" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/static/core/style.css.save">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/static/core/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6499">
+              <caret line="336" column="0" lean-forward="true" selection-start-line="336" selection-start-column="0" selection-end-line="336" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="279" column="10" lean-forward="true" selection-start-line="279" selection-start-column="10" selection-end-line="279" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pitch.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/static/core/js/pitch.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="362">
-              <caret line="640" column="32" lean-forward="true" selection-start-line="640" selection-start-column="32" selection-end-line="640" selection-end-column="32" />
+              <caret line="643" column="27" lean-forward="false" selection-start-line="643" selection-start-column="27" selection-end-line="643" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/templates/core/profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="829">
+              <caret line="517" column="14" lean-forward="false" selection-start-line="517" selection-start-column="14" selection-end-line="517" selection-end-column="14" />
+              <folding>
+                <element signature="e#7423#7430#0" expanded="true" />
+                <element signature="e#9707#9714#0" expanded="true" />
+                <element signature="e#10425#10432#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/templates/core/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="238" column="0" lean-forward="true" selection-start-line="238" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="23" column="62" lean-forward="false" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -52,6 +127,12 @@
       <find>csrf</find>
       <find>LOGIN_UR</find>
       <find>if</find>
+      <find>url1</find>
+      <find>url</find>
+      <find>rms</find>
+      <find>your score</find>
+      <find>scroll</find>
+      <find>chart</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -62,10 +143,11 @@
       <list>
         <option value="$PROJECT_DIR$/Project/settings.py" />
         <option value="$PROJECT_DIR$/core/views.py" />
-        <option value="$PROJECT_DIR$/core/templates/core/profile.html" />
+        <option value="$PROJECT_DIR$/core/static/core/js/pitch.js" />
         <option value="$PROJECT_DIR$/Project/templates/base.html" />
         <option value="$PROJECT_DIR$/core/templates/core/pitch.html" />
-        <option value="$PROJECT_DIR$/core/static/core/js/pitch.js" />
+        <option value="$PROJECT_DIR$/core/static/core/style.css" />
+        <option value="$PROJECT_DIR$/core/templates/core/profile.html" />
       </list>
     </option>
   </component>
@@ -76,7 +158,7 @@
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -221,7 +303,110 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="core">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="core">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="core">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="core">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="static">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="core">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -380,7 +565,7 @@
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14824797" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -411,6 +596,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6075">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -446,6 +632,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -454,7 +641,9 @@
         <state relative-caret-position="2863">
           <caret line="335" column="3" lean-forward="false" selection-start-line="335" selection-start-column="3" selection-end-line="335" selection-end-column="3" />
           <folding>
-            <element signature="e#8918#8925#0" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="e#8953#8960#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -471,6 +660,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -493,9 +683,12 @@
         <state relative-caret-position="350">
           <caret line="248" column="38" lean-forward="false" selection-start-line="248" selection-start-column="38" selection-end-line="248" selection-end-column="38" />
           <folding>
-            <element signature="e#7415#7422#0" expanded="true" />
-            <element signature="e#9361#9368#0" expanded="true" />
-            <marker date="1494041622931" expanded="false" signature="10700:10714" ph="..." />
+            <element signature="e#7423#7430#0" expanded="true" />
+            <element signature="e#9707#9714#0" expanded="true" />
+            <element signature="e#10425#10432#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -504,13 +697,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
           <caret line="314" column="31" lean-forward="true" selection-start-line="314" selection-start-column="31" selection-end-line="314" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/core/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6075">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -532,25 +721,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/core/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="397" column="0" lean-forward="true" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
-          <folding>
-            <element signature="e#7415#7422#0" expanded="true" />
-            <element signature="e#9361#9368#0" expanded="true" />
-            <marker date="1494041622931" expanded="false" signature="10700:10714" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="315" column="16" lean-forward="true" selection-start-line="315" selection-start-column="16" selection-end-line="315" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -589,28 +760,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project/templates/base.html">
+    <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-1247972723/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="314">
+          <caret line="3064" column="8" lean-forward="false" selection-start-line="3064" selection-start-column="8" selection-end-line="3064" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/core/pitch.html">
+    <entry file="file://$PROJECT_DIR$/Project/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="364" column="6" lean-forward="false" selection-start-line="364" selection-start-column="6" selection-end-line="364" selection-end-column="6" />
+        <state relative-caret-position="621">
+          <caret line="23" column="62" lean-forward="false" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="279" column="10" lean-forward="true" selection-start-line="279" selection-start-column="10" selection-end-line="279" selection-end-column="38" />
           <folding>
-            <element signature="e#8918#8925#0" expanded="true" />
+            <element signature="e#0#73#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/core/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="238" column="0" lean-forward="true" selection-start-line="238" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/static/core/js/pitch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
-          <caret line="640" column="32" lean-forward="true" selection-start-line="640" selection-start-column="32" selection-end-line="640" selection-end-column="32" />
+          <caret line="643" column="27" lean-forward="false" selection-start-line="643" selection-start-column="27" selection-end-line="643" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/core/pitch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1480">
+          <caret line="509" column="2" lean-forward="true" selection-start-line="509" selection-start-column="2" selection-end-line="509" selection-end-column="2" />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="e#8953#8960#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/style.css.save">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6499">
+          <caret line="336" column="0" lean-forward="true" selection-start-line="336" selection-start-column="0" selection-end-line="336" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/core/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="829">
+          <caret line="517" column="14" lean-forward="false" selection-start-line="517" selection-start-column="14" selection-end-line="517" selection-end-column="14" />
+          <folding>
+            <element signature="e#7423#7430#0" expanded="true" />
+            <element signature="e#9707#9714#0" expanded="true" />
+            <element signature="e#10425#10432#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

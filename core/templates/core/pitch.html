@@ -6,7 +6,6 @@
 {% block content1 %}
 <style>
 
-
 #explanation {
 	font-family: explanation;
 	font-size: 120%;
@@ -183,15 +182,15 @@ $t: 5;
 }
 </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script type="text/javascript">    
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip({
-        placement : 'top'
-    });
+    $('[data-toggle="tooltip"]').tooltip();   
 });
 </script>
 
@@ -290,13 +289,12 @@ var rms_valuey=0;
 			</div>
 			<div class="col-md-6 tuningfactor">
 		<button type="submit" class="btn btn-success" value="Start Singing">RESET TUNING FACTOR</button>
-		<a href="#" data-toggle="tooltip" title="Default tooltip"><span class="glyphicon glyphicon-info-sign infosign"></span></a>
+		<a href="#" data-toggle="tooltip" data-placement="right" title="Default tooltip"><span class="glyphicon glyphicon-info-sign infosign"></span></a>
 			</div>
 		</div>
 	</form>
 </div>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> -->
     <script type="text/javascript"> 
       $(document).ready( function() {
         $('.containercountdown').delay(5000).fadeOut();
@@ -371,6 +369,7 @@ var rms_valuey=0;
 
       		<div class="btn btn-success" onclick="window.location.reload(true);">RETRY</div>
       		<br><br>
+      	</div><!-- Delete this line in case of styling problems -->
 
 {% csrf_token %}
 	

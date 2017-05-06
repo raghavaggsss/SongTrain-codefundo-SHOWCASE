@@ -11,6 +11,7 @@ from sendEmail import send_email
 from shutil import copyfile
 from django.http import HttpResponse
 from core.forms import SignUpForm
+import json
 from django.template import RequestContext
 
 def home(request):
@@ -57,7 +58,7 @@ def signup(request):
 #         form = SignUpForm()
 #         return render(request, 'core/signup.html', {'form': form})
 
-@login_required(login_url='login')
+@login_required(login_url='home')
 def profile(request):
     email = request.user.email
     username = request.user.username
@@ -223,7 +224,7 @@ def karaoke_success(request):
         # your song being processed. pl come back when u receive the email
         # return render(request, 'core/record.html')
         # except songDB.DoesNotExist:
-        #    return render(request, 'core/karaoke_success.html', {'invalid_user': True}) #sorry no such song exists. pl check    
+        #    return render(request, 'core/karaoke_success.html', {'invalid_user': True}) #sorry no such song exists. pl check
 
 
         song_and_email_exist = songDB.objects.filter(full_name=email_check + song_name_check)
@@ -269,7 +270,7 @@ def karaoke_success(request):
 #     karaoke_url = 'media/karaoke/' + to_email_id + song_name
 #     return render(request, 'core/record.html', {'karaoke_url': karaoke_url, 'recording_name': to_email_id + song_name})
 
-@login_required(login_url='login')
+@login_required(login_url='home')
 def record(request):
     default_rms = 18
     if 'song_name' in request.POST:
@@ -291,11 +292,15 @@ def record(request):
         return HttpResponse('success')
     return render(request, 'core/pitch.html', {'vocals_url': vocals_url, 'rmsValue':default_rms})
 
-
+@login_required(login_url='home')
 def leaderboard(request):
-    if (request.session):
-        song_name = request.session['song_name']
-        hash_filter = songDB.objects.filter(full_name=request.user.username + song_name)
+    if 'song_name1' in request.POST or 'song_name' in request.session:
+        if ('song_name1' in request.POST):
+            song_name1 = (request.POST['song_name1']).split()[0]
+            request.session['song_name'] = song_name1
+        elif ('song_name' in request.session):
+            song_name1 = request.session['song_name']
+        hash_filter = songDB.objects.filter(full_name=request.user.username + song_name1)
         song_filter = songDB.objects.filter(hash_code=hash_filter[0].hash_code)
         username_score = {}
         for items in song_filter:
@@ -303,5 +308,16 @@ def leaderboard(request):
         # count_array  = [ i for i in range(1,len(email_score)+1)]
         import operator
         sorted_x = sorted(username_score.items(), key=operator.itemgetter(1),reverse=True)
-        return render(request, 'core/leaderboard.html',
-                      {'email_score': sorted_x, 'song_name': song_name})
+        from collections import OrderedDict
+        od = OrderedDict(sorted(username_score.items(), key=lambda t: t[1]))
+        items = od.items()  # list(od.items()) in Python3
+        items.reverse()
+        od = OrderedDict(items)
+        print od
+        json_stats = json.dumps(od)
+        if ('song_name1' in request.POST):
+            return HttpResponse(json_stats, content_type='application/json')
+        else:
+            return render(request, 'core/leaderboard.html',
+                          {'email_score': sorted_x, 'song_name': song_name1})
+    #return for leaderboard

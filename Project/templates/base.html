@@ -21,6 +21,7 @@
 		<script src="{% static 'core/js/rickshaw.min.js' %}"></script>
 		<script src="{% static 'core/js/Rickshaw.Graph.HoverDetail.js' %}"></script>
 		<script>var url = "{% url 'record' %}";</script>
+		<script>var url1 = "{% url 'leaderboard' %}";</script>
 		<script src="{% static 'core/js/Rickshaw.Graph.Legend.js' %}"></script>
 		<link href="{% static 'core/rickshaw.min.css'  %}" rel="stylesheet"/>
 		<link href="{% static 'core/legend.css' %}" rel="stylesheet"/>
@@ -29,7 +30,7 @@
 
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		
+
 		<style>
 			.social li {
 				background: none repeat scroll 0 0 #B5B5B5;
@@ -85,6 +86,7 @@
 			.footer-bottom {
 				padding-top: 1.5%;
 				padding-bottom: 2%;
+				/*margin-bottom: -10%;*/
 				background: #323737;
 				color: #909595;
 				border-top: 1px solid #DDDDDD;
@@ -100,6 +102,7 @@
 				margin-top: 2%;
 				text-align: center;
 				color: white;
+				margin-left: -10d%;
 			}
 
 			.socialicons {
@@ -123,26 +126,22 @@
 			}
 
 			.logosongtrain {
-				margin-top: -10px;
+				margin-top: 10px;
 				height: 100px;
 				width: 120px;
-			}
-
-
-			body {
-				background: black;
+				margin-bottom: -15px;
 			}
 
 		</style>
 
 		{% block content1 %}
-		{% endblock %}	
-    
+		{% endblock %}
+
     	<title>Song | Train</title>
-   	
+
 	</head>
 	<body>
-		
+
     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -150,26 +149,26 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>				
+                <span class="icon-bar"></span>
             </button>
             {% if user.username %}
             <a href="{% url 'profile' %}" class="navbar-brand"><strong>SONGTRAIN</strong></a>
         	{% else %}
         	<a href="{% url 'home' %}" class="navbar-brand"><strong>SONGTRAIN</strong></a>
         	{% endif %}
-        </div> 
+        </div>
         <!-- Collection of nav links, forms, and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
-            
-            <ul class="nav navbar-nav navbar-right">		 		
+
+            <ul class="nav navbar-nav navbar-right">
             	<li>{% block login %}{% endblock %}</li>
                 <li>
 					{% block logout %}<a href="{% url 'logout' %}">LOGOUT</a>{% endblock %}</li>
             </ul>
         </div>
     </nav>
-		
-		
+
+
 	    {% block content2 %}
 	    {% endblock %}
 <!-- 	 <nav role="navigation" class="navbar navbar-inverse navbar-static-bottom" style="height: 200px; background-color: black; color: white;">
@@ -195,15 +194,15 @@
 	</nav> -->
 
 		<footer class="footer">
-			
+
 			<div class="container">
-				
+
 				<div class="row">
 					<div class="col-md-3">
 						<img class="logosongtrain" src="/static/core/images/pngforlogo(donotuse).png">
 					</div>
 
-					<div class="col-md-9">
+					<div class="col-md-7 col-md-offset-2">
 						<div class="row">
 							<div class="socialicons  col-md-3 col-md-offset-4 ">
 								<ul class="social center-block list-unstyled">
@@ -225,15 +224,15 @@
 					</div>
 	            </div>
 
-		        <!--<div class="SITEMAP"> 
+		        <!--<div class="SITEMAP">
 		        	<ul class="list-inline">
 		        		<li><a href="#">HOME</a>
 		        		<li><a href="#">TUTORIALS</a>
 		        		<li><a href="#">DOCUMENTATION</a>
-		        		<li><a href="#">THE TEAM</a>	
+		        		<li><a href="#">THE TEAM</a>
 		        	</ul>
 		        </div>
- -->			
+ -->
 
 
 	        </div>
@@ -245,10 +244,6 @@
 	    <div class="footer-bottom">
 	    	<div class="container pull-left">
 	    		<i>Created by Team Voicers, Indian Institute of Technology, Kanpur</i>
-	    	</div>
-
-	    	<div class="container pull-right">
-	    		<i>The only advice a teacher can give is to think in front of his students</i>
 	    	</div>
 	   	</div>
 

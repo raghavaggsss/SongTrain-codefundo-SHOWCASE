@@ -187,15 +187,20 @@ Welcome, {{user.first_name}}!
         arr = new Array();
     </script>
 {% for song in songs %}
+
 <div class="col-md-3">
 
 <div class="content">
-        
         <div class="grid">
           <figure class="effect-julia">
             <img src="http://www.spectrumglass.com/stained-glass/img/products/system96/5232SF.JPG" alt="img21"/>
             <figcaption>
               <h2><span>{{song.name_of_song}}</span></h2>
+                {% if song.email_sent is not 1 %}
+                <h2><span>PROCESSING</span></h2>
+            </figcaption>
+          </figure>
+                {% else %}
               <div>
                 <br><br>
                   <script>
@@ -208,12 +213,13 @@ Welcome, {{user.first_name}}!
                   </script>
                 <p class="scores" id="{{song.score}}" data-toggle="modal" data-target="#exampleModalHistory" data-backdrop="static" data-keyboard="false">Score History</p><br>
                 <p class="start_singing" id="{{song.name_of_song}}">Start Singing</p><br>
-                <p  data-toggle="modal" data-target="#exampleModalLeaderboard">Leaderboard</p><br>
+                <p  class ="leaderboard" id = "{{song.name_of_song}} " data-toggle="modal" data-target="#exampleModalLeaderboard">Leaderboard</p><br>
               </div>
-              
-            </figcaption>     
+
+            </figcaption>
           </figure>
-          
+                {% endif %}
+
       </div>
 </div>
 
@@ -224,10 +230,32 @@ Welcome, {{user.first_name}}!
     $('.start_singing').click(function(){
         csrftoken = getCookie('csrftoken');
                     setup();
-        var song_name = this.id;
+         var song_name = this.id;
          var data = {'song_name': song_name};
     $.post(url, data, function(response){
         if ( response === 'success'){window.location = url}
+    });
+})
+var count_leader =1;
+$('.leaderboard').click(function(){
+        csrftoken = getCookie('csrftoken');
+                    setup();
+         var song_name1 = this.id;
+         var data = {'song_name1': song_name1};
+    $.post(url1, data, function(data){
+        var tableData = '<table class="table table-striped table-responsive"><th><tr><th>RANK</th><th>USERNAME</th><th>SCORE</th></tr></thead><tbody>'
+$.each(data, function(key, value){
+        tableData += '<tr>';
+        tableData += '<td>' + count_leader + '</td>';
+        tableData += '<td>' + key + '</td>'
+        tableData += '<td>' + value + '</td>';
+        tableData += '</tr>';
+        count_leader = count_leader+1;
+});
+count_leader = 1;
+tableData += '</tbody></table>';
+
+$('#table_leaderboard').html(tableData);
     });
 })
 
@@ -351,7 +379,7 @@ function clearGraph() {
 
       </div>
       <div class="modal-body">
-
+          <div id="table_leaderboard"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

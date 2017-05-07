@@ -340,7 +340,7 @@ body:before {
          var song_name = this.id;
          var data = {'song_name': song_name};
     $.post(url, data, function(response){
-        if ( response === 'success'){window.location = url}
+        if ( response === 'success'){$('#rmsModal').modal('show');}
     });
 })
 var count_leader =1;
@@ -467,6 +467,18 @@ function clearGraph() {
 
 
 </script>
+          <script>
+$('.modal').on('show.bs.modal', function () {
+if ($(document).height() > $(window).height()) {
+  $('body').attr('style', 'margin-right:'  + 'px;');
+} else {
+  $('body').attr('style', 'margin-right:0;');
+}
+})
+$('.modal').on('hidden.bs.modal', function () {
+  $('body').attr('style', 'margin-right:0px;');
+})  </script>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" onclick="clearGraph()" data-dismiss="modal">Close</button>
@@ -496,6 +508,28 @@ function clearGraph() {
   </div>
 </div>
 
+<div class="modal fade" id="rmsModal" tabindex="-1" role="dialog" aria-labelledby="rmsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="rmsModalLabel">ABOUT TUNING FACTOR<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h4>
+
+      </div>
+      <div class="modal-body">
+          <div style="text-align:center; font-style: bold; font-size:20px">Tuning factor allows you to fine tune your microphone for best results</div><br>
+          <div style="text-align:center">If you get very less points on the graph, you should decrease the Tuning Factor value.<br>
+          If you get a lot of data points/noise on your graph, you should increase the Tuning Factor value.</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-success" onclick="location.href={% url 'record' %}">Proceed</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 <div class="modal fade" id="exampleModalUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalUploadLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -516,7 +550,7 @@ function clearGraph() {
         <div class="form-horizontal">
           <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          
+
           <div class="row">
             <div class="form-group">
                 <label class="control-label col-sx-2"></label>
@@ -526,7 +560,7 @@ function clearGraph() {
           <div class="row row2">
             <div class="col-md-3">
               <label class="fileUpload btn btn-success" id = "start1">
-                <input type="file" name="myfile" onchange="$('#upload-file-info').html(this.files[0].name);"> 
+                <input type="file" name="myfile" onchange="$('#upload-file-info').html(this.files[0].name);">
                 SELECT FILE
               </label><span style="font-size: 60%" id="upload-file-info"></span>
             </div>
@@ -535,6 +569,7 @@ function clearGraph() {
               <button type="submit" id="modalUpload" class="fileUpload btn btn-success upload_button">UPLOAD</button>
             </div>
           </div>
+            
           </form> 
         </div> 
       </div>

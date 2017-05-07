@@ -121,6 +121,7 @@ def profile(request):
         # separate_thread=myThread(1,file_name,song_name,to_email_id)
         # separate_thread.start()
         # freq_karaoke, time = freq_array(filename)
+        songs = reversed(songDB.objects.filter(user_name=username))
         return render(request, 'core/profile.html', {
             'uploaded_file_url': uploaded_file_url, 'filename': song_name,
             'email_id': email, 'songs':songs})

@@ -41,6 +41,11 @@
 	src: url("fonts/Lato-Light.ttf");
 }
 
+@font-face {
+	font-family: exo;
+	src: url("fonts/theleagueof-raleway-40afd9d/Exo2-Medium.ttf");
+}
+
 .heading1{
 	font-family: heading1;
 	font-size: 600%;

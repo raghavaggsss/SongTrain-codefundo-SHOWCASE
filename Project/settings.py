@@ -25,8 +25,7 @@ SECRET_KEY = '3@ii)7#z#9l5g+^tqaj&uqck&g7p2_ol1s61d!=)rj2i*h(1xn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
-
+ALLOWED_HOSTS = ['127.0.0.1','songtraincfd.southindia.cloudapp.azure.com','13.71.112.186','songtrain.in']
 
 # Application definition
 
@@ -153,3 +152,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 FILE_UPLOAD_PERMISSIONS = 0644
+X_FRAME_OPTIONS = 'ALLOWALL'

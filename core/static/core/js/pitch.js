@@ -644,6 +644,7 @@ function sendScore(score){
     score = round(score,2);
     var data = {'score': score};
     $.post(url, data, function(response){
+
         if(response === 'success'){ setTimeout(function() {$('#score_modal').html(score);
         $('#myModal').modal('show')}, 1000) }
         else{ alert('Error! 😞'); }

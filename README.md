@@ -41,6 +41,6 @@ Wallpapers - pexels.com
 Demo Song - Tujhe Sochta Hoon (Sony Music Entertainment India Pvt. Ltd)
 
 
-Youtube Demo Link - https://youtu.be/iwKzN4ybRDM
+Youtube Demo Link - https://www.youtube.com/watch?v=BA8vgPW-Ju0
 
 
